@@ -38,9 +38,6 @@ async function login(username, password) {
 
       if (statusCode === 400) {
         return {
-          authenticated: false,
-          session: null,
-          lookup: null,
           cookies: "",
           status: statusCode,
           message: data.message?.includes("HIP")
