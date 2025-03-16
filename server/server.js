@@ -7,6 +7,7 @@ const etag = require("etag");
 const { limiter } = require("./middleware/rateLimiter");
 const routes = require("./routes/userRoutes");
 const authRoutes = require("./routes/authRoutes");
+const connectDB = require("./config/db");
 
 if (process.env.DEV_MODE === "true") {
   dotenv.config();
@@ -14,6 +15,7 @@ if (process.env.DEV_MODE === "true") {
 
 const app = express();
 const port = process.env.PORT || 9000;
+connectDB();
 
 app.use(bodyParser.json());
 app.use(compression());
